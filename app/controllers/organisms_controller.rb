@@ -1,5 +1,9 @@
 class OrganismsController < ApplicationController
-  def index
+  
+  def top
+  end
+
+  def database_show
     @organisms = Organism.all
   end
 

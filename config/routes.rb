@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  #get 'organisms/database'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'organisms#top'
+  get 'database', to: 'organisms#database_show', as: :database_show
   resources :organisms do
     collection { post :import }
   end
