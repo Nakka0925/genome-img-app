@@ -8,7 +8,7 @@ class OrganismsController < ApplicationController
   end
 
   def create
-    #@organisms = Organism.new(organisms_params)
+    @acc = params[:acc]
   end
 
   def import
