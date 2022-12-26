@@ -48,6 +48,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     bindex (0.8.1)
+    bio (2.0.4)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -102,6 +103,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
+    mizlab (0.1.7)
+      bio (~> 2.0.0)
+      rexml
     msgpack (1.6.0)
     net-imap (0.3.3)
       date
@@ -217,6 +221,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mizlab
   puma (~> 3.11)
   rails (~> 5.2.8, >= 5.2.8.1)
   roo
