@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_21_055355) do
+ActiveRecord::Schema.define(version: 2022_12_30_165111) do
 
   create_table "organisms", force: :cascade do |t|
     t.string "replicon"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_12_21_055355) do
     t.string "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_path"
   end
 
 end
