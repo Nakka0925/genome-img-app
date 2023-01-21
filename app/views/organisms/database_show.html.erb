@@ -1,14 +1,13 @@
 <h1>Organism一覧</h1>
 
 <h4><%= link_to 'トップページ', root_path %></h4>
-
+<%= paginate @organisms %>
 <table border="1">
   <thead>
     <tr>
       <th>アクセッション番号</th>
       <th>生物種名</th>
       <th>グループ</th>
-      <th>パス</th>
     </tr>
   </thead>
 
@@ -18,16 +17,13 @@
         <td><%= organism.replicon %></td>
         <td><%= organism.name %></td>
         <td><%= organism.group %></td>
-        <td><%= organism.img_path %></td>
       </tr>
     <% end %>
   </tbody>
-
-  <%= form_tag import_organisms_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "インポート" %>
-  <% end %>
+  <%# <%= form_tag import_organisms_path, multipart: true do %>
+    <%# <%= file_field_tag :file %>
+    <%# <%= submit_tag "インポート" %>
+  <%# <% end %>
 
 </table>
-
-
+<%= paginate @organisms %>
