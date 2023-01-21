@@ -1,0 +1,61 @@
+.top {
+    text-align:center;
+    /* font-size: 30px; */
+    padding: 0.5em;/*文字周りの余白*/
+    color: #010101;/*文字色*/
+    background: #eaf3ff;/*背景色*/
+    border-bottom: solid 3px #516ab6;/*下線*/
+}
+
+.forms {
+    text-align:center;
+}
+
+figure.img_box {
+    justify-content: center;
+    display:inline-block;
+    /* display:flex; */
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 20px;
+}
+
+th,td {
+    padding: 5px;      /* 余白指定 */
+}
+
+.organism_name {
+    width: 600px;
+}
+ 
+table {
+    margin:auto;
+    border-collapse:  collapse; /* セルの線を重ねる */
+}
+
+/*ページネーション自体のデザイン*/
+.pagination {
+    margin: 20px auto 0;
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+}
+
+.pagination>li>a { 
+    border: none;     /*枠線をなくす*/
+    color: #696969;   /*文字の色を変える*/
+  }
+  
+/* 表示しているページ番号のデザイン */
+
+.pagination>.active>a {     
+    /* background: #93c9ff;     背景の色を変える */
+    border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+    border-radius: 15px;    /*角を丸くする*/
+}
