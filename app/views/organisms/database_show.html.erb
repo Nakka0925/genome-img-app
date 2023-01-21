@@ -5,17 +5,17 @@
 <table border="1">
   <thead>
     <tr>
-      <th>アクセッション番号</th>
-      <th>生物種名</th>
-      <th>グループ</th>
+      <th class="forms">アクセッション番号</th>
+      <th class="forms">生物種名</th>
+      <th class="forms">グループ</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="forms">
     <% @organisms.each do |organism| %>
       <tr>
         <td><%= organism.replicon %></td>
-        <td><%= organism.name %></td>
+        <td class="organism_name"><%= organism.name %></td>
         <td><%= organism.group %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
   <%# <% end %>
 
 </table>
-<%= paginate @organisms %>
+<%= paginate @organisms, class: "pagnate" %>
