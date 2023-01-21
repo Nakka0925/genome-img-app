@@ -1,8 +1,16 @@
 <header>
   <h1 class="top">塩基配列のグラフ画像表示</h1>
-  <p class="kazu">作成する際のベクトルの割り当ては下図になります</p>
-  <div class="atgc_vec">
-    <%= image_tag '/atgc.jpg', alt: "atgcベクトル画像", size: "200x200", class: :test %>
+  <p class="forms">作成する際のベクトルの割り当ては下図になります</p>
+  <div class = "forms">
+    <figure class="img_box">
+      <%= image_tag "/atgc.jpg", alt: "atgcのベクトルの画像", size: "200x200" %>
+      <figcaption>atgcベクトル割り当て</figcaption>
+    </figure>
+
+    <figure class="img_box">
+      <%= image_tag "/atgc_tmp_graph.png", alt: "グラフ画像例", size: "200x200" %>
+      <figcaption>グラフ画像例</figcaption>
+    </figure>
   </div>
 </header>
 
