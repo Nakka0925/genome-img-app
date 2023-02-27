@@ -5,11 +5,16 @@ class OrganismsController < ApplicationController
   end
 
   def database_show
-    @organisms = Organism.all.page(params[:page])
+    if params[:search].present?
+      @organisms = Organism.where("classes like ?", "%#{params[:search]}%").page(params[:page])
+    else
+      @organisms = Organism.all.page(params[:page])
+    end
   end
 
   def create
     @acc = params[:acc]
+    @entry = Genome.new()
     @@tmp = @acc
   end
 
