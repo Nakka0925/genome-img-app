@@ -2,11 +2,56 @@ require 'mizlab'
 require 'csv'
 require 'bio'
 require 'json'
+require 'net/http'
+require 'uri'
 
 class Genome
+    # def get_seq(acc)
+    #     ent = Mizlab.getobj(acc)
+    #     return  ent.seq
+    # end
+
+    def parse(entries)
+        Bio::FlatFile.auto(StringIO.new(entries)).each_entry do |e|
+          yield e
+        end
+    end
+
     def get_seq(acc)
-        ent = Mizlab.getobj(acc)
-        return  ent.seq
+        # GenBank形式のファイルを開く
+        gb_file =  Bio::NCBI::REST::EFetch.nucleotide(acc)
+
+        parse(gb_file) do |entry|
+            # エントリーの情報を表示する
+            # puts "Definition: #{entry.definition}"
+            # puts "Accession: #{entry.accession}"
+            return entry.naseq
+        end
+    end
+
+    def deepL(acc)
+
+        seq = get_seq(acc)
+
+        uri = URI.parse("http://localhost:5000/")
+        request = Net::HTTP::Get.new(uri)
+
+        request.content_type = "application/json"
+        request.body = JSON.dump({
+            "#{acc}" => "#{seq}"
+        })
+        
+
+        req_options = {
+            use_ssl: uri.scheme == "https",
+        }
+
+        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+            http.request(request)
+        end
+
+
+        return response.body
     end
 
     def cacl_cood(seq)

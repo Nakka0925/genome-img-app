@@ -22,6 +22,12 @@ class OrganismsController < ApplicationController
     send_file "app/assets/images/#{@@tmp}.png" 
   end
 
+  def predict
+    @acc = params[:acc]
+    @entry = Genome.new()
+    @@tmp = @acc
+  end
+
   def import
     Organism.import(params[:file])
     redirect_to database_show_path

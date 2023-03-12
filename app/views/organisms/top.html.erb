@@ -19,4 +19,11 @@
   <%= form.submit "作成" %>
 <% end %>
 
+<p class="forms">機械学習を用いた生物種の予測</p>
+
+<%= form_with url: predict_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+  <%= form.text_field :acc %>
+  <%= form.submit "予測" %>
+<% end %>
+
 <%= link_to '登録されている生物種',database_show_path %>
