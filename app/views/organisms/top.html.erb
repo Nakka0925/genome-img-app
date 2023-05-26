@@ -1,29 +1,45 @@
 <header>
-  <h1 class="top">塩基配列のグラフ画像表示</h1>
-  <p class="forms">作成する際のベクトルの割り当ては下図になります</p>
-  <div class = "forms">
-    <figure class="img_box">
-      <%= image_tag "/atgc.jpg", alt: "atgcのベクトルの画像", size: "200x200" %>
-      <figcaption>atgcベクトル割り当て</figcaption>
-    </figure>
-
-    <figure class="img_box">
-      <%= image_tag "/atgc_tmp_graph.png", alt: "グラフ画像例", size: "200x200" %>
-      <figcaption>グラフ画像例</figcaption>
-    </figure>
-  </div>
 </header>
 
-<%= form_with url: create_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
-  <%= form.text_field :acc %>
-  <%= form.submit "作成" %>
-<% end %>
+<head> 
+  <title>ミトコンドリアゲノムのグラフ表示画像を入力とする機械学習ネットワーク</title>
+</head>
 
-<p class="forms">機械学習を用いた生物種の予測</p>
+<body>
+<h1>ミトコンドリアゲノムのグラフ表示画像を入力とする機械学習ネットワーク</h1>
+<div class="container">
+  <div class="block">
+    <h2 class="top">塩基配列のグラフ画像表示</h2>
+    <p class="forms">作成する際のベクトルの割り当ては下図になります</p>
+    
+    <div class = "forms">
+      <figure class="img_box">
+        <%= image_tag "/atgc.jpg", alt: "atgcのベクトルの画像", size: "200x200" %>
+        <figcaption>atgcベクトル割り当て</figcaption>
+      </figure>
 
-<%= form_with url: predict_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
-  <%= form.text_field :acc %>
-  <%= form.submit "予測" %>
-<% end %>
+      <figure class="img_box">
+        <%= image_tag "/atgc_tmp_graph.png", alt: "グラフ画像例", size: "200x200" %>
+        <figcaption>グラフ画像例</figcaption>
+      </figure>
+    </div>
 
+    <%= form_with url: create_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+      <%= form.text_field :acc %>
+      <%= form.submit "作成" %>
+    <% end %>
+  </div>
+
+  <div class="block">
+    <h2 class="top">機械学習を用いた生物種の予測</h2>
+    <p class="forms">精度としては89%程度</p>
+    <p class="forms">※多少時間がかかる可能性あり</p>
+
+    <%= form_with url: predict_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+      <%= form.text_field :acc %>
+      <%= form.submit "予測" %>
+    <% end %>
+  </div>
+</div>
 <%= link_to '登録されている生物種',database_show_path %>
+</body>

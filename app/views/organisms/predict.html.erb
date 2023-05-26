@@ -1,5 +1,8 @@
 <h1>predict_class</h1>
 
-<%= @entry.deepL(@acc)%>
-<%= image_tag "#{@acc}.png" %>
+<div class="img_center">
+    <%= image_tag "#{@acc}.png" %>
+</div>
+<p class="forms"> <%= @entry.deepL(@acc)%> </p>
+
 <h3><%= link_to '戻る', root_path %></h3>
