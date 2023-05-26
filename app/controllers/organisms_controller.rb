@@ -14,7 +14,6 @@ class OrganismsController < ApplicationController
 
   def create
     @acc = params[:acc]
-    @entry = Genome.new()
     @@tmp = @acc
   end
 
@@ -25,7 +24,6 @@ class OrganismsController < ApplicationController
   def predict
     @acc = params[:acc]
     @entry = Genome.new()
-    @@tmp = @acc
   end
 
   def import
