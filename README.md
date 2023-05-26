@@ -1,24 +1,11 @@
-# README
+# ミトコンドリアゲノム配列の画像化と、その画像データからどの網に分類できるかを深層学習を用いて予測するwebアプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+自身の研究であるミトコンドリアゲノムに関してのものとなっている。2つの機能があり、グラフ画像の生成と生物分類の予測を行うことができる。どちらの機能も入力には、生物データに割り当てられているアクセッション番号と呼ばれる記号を用いる。データベースを参照することができるので、基本その中からアクセッション番号を選び、分類予測の機能ではそれ以外のものも入力することができる。
 
-* Ruby version
+## ページ外観
 
-* System dependencies
+1. トップページ
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![画像の説明](page_view/top_page.png "top")
