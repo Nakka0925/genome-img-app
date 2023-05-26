@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_30_165111) do
+ActiveRecord::Schema.define(version: 2023_05_25_123944) do
 
   create_table "organisms", force: :cascade do |t|
     t.string "replicon"
     t.string "name"
-    t.string "group"
+    t.string "classes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "img_path"
   end
 
 end
