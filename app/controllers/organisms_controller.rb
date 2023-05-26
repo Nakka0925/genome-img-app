@@ -26,8 +26,9 @@ class OrganismsController < ApplicationController
     @entry = Genome.new()
   end
 
-  def import
-    Organism.import(params[:file])
-    redirect_to database_show_path
-  end
+  #csvからデータベースにデータを登録する
+  # def import 
+  #   Organism.import(params[:file])
+  #   redirect_to database_show_path
+  # end
 end

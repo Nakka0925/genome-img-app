@@ -8,7 +8,7 @@ class Organism < ApplicationRecord
   end
 
   def self.updatable_attributes
-    ["replicon", "name", "group", "img_path"]
+    ["replicon", "name", "group"]
   end
 
 end

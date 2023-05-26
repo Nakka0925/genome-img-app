@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'roo'
+# mizlab : 研究室でよく扱う機能をまとめたgem
 gem 'mizlab'
 gem 'json'
 # Use Redis adapter to run Action Cable in production
