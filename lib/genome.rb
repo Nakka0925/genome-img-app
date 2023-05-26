@@ -50,8 +50,14 @@ class Genome
             http.request(request)
         end
 
+        res = response.body.delete("^0-9").to_i
 
-        return response.body
+        data = Hash.new()
+        File.open("lib/machine-genome-classification/data/json/label.json") do |f|
+            data = JSON.load(f)
+        end
+
+        return data.key(res)
     end
 
     def cacl_cood(seq)
