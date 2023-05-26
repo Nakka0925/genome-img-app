@@ -9,3 +9,15 @@
 1. トップページ
 
 ![画像の説明](page_view/top_page.png "top")
+
+2. グラフ画像ページ
+
+![画像の説明](page_view/graph_page.png "generate_graph")
+
+3. 分類予測ページ
+
+![画像の説明](page_view/pridict_page.png "predict")
+
+4. データベースページ
+
+![画像の説明](page_view/database_page.png "database")
