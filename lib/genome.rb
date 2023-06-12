@@ -49,9 +49,9 @@ class Genome
         response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
             http.request(request)
         end
-
+        
+        # label番号から分類情報を求める
         res = response.body.delete("^0-9").to_i
-
         data = Hash.new()
         File.open("lib/machine-genome-classification/data/json/label.json") do |f|
             data = JSON.load(f)
