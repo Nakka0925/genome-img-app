@@ -34,22 +34,14 @@ def generate_image(acc,
     figsize = (pix_of_a_side / dpi, pix_of_a_side / dpi)
     fig = plt.figure(figsize=figsize, dpi=dpi)
     ax = fig.add_axes([0, 0, 1, 1])
-    l = int(len(x_coo) / 255)
-    mask = 0
 
-    for i in range(1, 256):
-        gray_scale = str(1 - (i / 255))
-        ax.plot(x_coo[mask:mask+l], y_coo[mask:mask+l], color=gray_scale, lw=1)
-        mask += l
-    if len(x_coo) % 255 != 0:
-        ax.plot(x_coo[mask:], y_coo[mask:], color='0.0', lw=1)
+    ax.plot(x_coo, y_coo, color=black, lw=1)
     
-    # 先にそれぞれのcooをソートしてからmin,maxかけるのとどっちが早いんだろう
     format_graph_img(ax, min(x_coo), max(x_coo), min(y_coo), max(y_coo))
 
     dst = f"/home/nakanishi/rails/genome-img-app/app/assets/images/{acc}.png"
     plt.savefig(dst)
-    plt.close()    # clear figure on each species
+    plt.close()  
     return fig
 
 
@@ -88,10 +80,9 @@ def calc_coordinates(seq: Seq.Seq, weight: dict) -> Tuple[list, list]:
 
     return x_coo, y_coo
 
-
 @app.route("/", methods = ['GET'])
+
 def predict():
-    # model = tf.keras.models.load_model('saved_model/my_model')
     data = request.json
     acc = list(data.keys())
     seq = list(data.values())
@@ -104,10 +95,7 @@ def predict():
             weight = json.load(f)
             fig = generate_image(acc[0], seq[0], weight)
 
-
-    ################################################################
-    # train
-
+    ###train###
     model = tf.keras.models.load_model('saved_model/my_model')
     img = cv2.imread(img_path)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -116,14 +104,6 @@ def predict():
     predictions = model.predict(img)
 
     return jsonify({"prediction":f"{predictions.argmax()}"})
-# @app.route("/lang", methods = ['GET'])
-# def returnAll():
-#     return jsonify({'langages' : languages})
-
-# @app.route("/lang/<string:name>", methods = ['GET'])
-# def returnOne(name):
-#     langs = [language for language in languages if language['name'] == name]
-#     return jsonify({'langages' : langs[0]})
 
 
 if __name__ == '__main__':
