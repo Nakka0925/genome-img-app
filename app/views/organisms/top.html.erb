@@ -35,7 +35,7 @@
     <p class="forms">精度としては89%程度</p>
     <p class="forms">※多少時間がかかる可能性あり</p>
 
-    <%= form_with url: predict_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+    <%= form_with url: predict_path, local: true ,class: "forms" do |form| %>
       <%= form.text_field :acc %>
       <%= form.submit "予測" %>
     <% end %>

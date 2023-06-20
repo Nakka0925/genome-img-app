@@ -1,11 +1,10 @@
 class OrganismsController < ApplicationController
-  @@tmp = String.new
   
   def top
   end
 
   def database_show
-    if params[:search].present?
+    if params[:search].present? # TODO: 条件の絞り込みで検索をおこなう
       @organisms = Organism.where("classes like ?", "%#{params[:search]}%").page(params[:page])
     else
       @organisms = Organism.all.page(params[:page])
@@ -13,16 +12,15 @@ class OrganismsController < ApplicationController
   end
 
   def create
-    @acc = params[:acc]
-    @@tmp = @acc
+    flash[:acc] = params[:acc]
   end
 
   def download
-    send_file "app/assets/images/#{@@tmp}.png" 
+    send_file "app/assets/images/#{flash[:acc]}.png" 
   end
 
   def predict
-    @acc = params[:acc]
+    flash[:acc] = params[:acc]
     @entry = Genome.new()
   end
 

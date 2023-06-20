@@ -1,9 +1,11 @@
 <h1>Grath-generate</h1>
+
 <div class="img_center">
-    <%= image_tag "#{@acc}.png", class: "img_center"%>
+    <%= image_tag "#{flash[:acc]}.png", class: "img_center"%>
 </div>
+
 <div class="img_center">
-    <%#<%= @data.gen_pixel_data(@acc) %>
     <%= button_to 'ダウンロード', download_path, method: :get, class: "img_center"%>
 </div>
+
 <h3><%= link_to '戻る', root_path %></h3>
