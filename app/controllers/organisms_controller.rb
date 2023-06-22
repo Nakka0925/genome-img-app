@@ -12,6 +12,7 @@ class OrganismsController < ApplicationController
   end
 
   def create
+    @page_title = params[:acc]
     flash[:acc] = params[:acc]
   end
 
@@ -20,7 +21,7 @@ class OrganismsController < ApplicationController
   end
 
   def predict
-    flash[:acc] = params[:acc]
+    @page_title = params[:acc]
     @entry = Genome.new()
   end
 

@@ -1,3 +1,5 @@
+<% content_for :title, "Create #{@page_title}" %>
+
 <h1>Grath-generate</h1>
 
 <div class="img_center">
@@ -8,4 +10,4 @@
     <%= button_to 'ダウンロード', download_path, method: :get, class: "img_center"%>
 </div>
 
-<h3><%= link_to '戻る', root_path %></h3>
+<h3><%= link_to '戻る', root_path, class: "btn btn-primary"%></h3>

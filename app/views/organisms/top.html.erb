@@ -1,9 +1,6 @@
+<% content_for :title, "DNAグラフ画像を用いた生物種分類" %>
 <header>
 </header>
-
-<head> 
-  <title>ミトコンドリアゲノムのグラフ表示画像を入力とする機械学習ネットワーク</title>
-</head>
 
 <body>
 <h1>ミトコンドリアゲノムのグラフ表示画像を入力とする機械学習ネットワーク</h1>
@@ -20,7 +17,7 @@
 
       <figure class="img_box">
         <%= image_tag "/atgc_tmp_graph.png", alt: "グラフ画像例", size: "200x200" %>
-        <figcaption>グラフ画像例</figcaption>
+        <figcaption>例</figcaption>
       </figure>
     </div>
 
@@ -41,5 +38,5 @@
     <% end %>
   </div>
 </div>
-<%= link_to '登録されている生物種',database_show_path %>
+<%= link_to '登録されている生物種',database_show_path, class: "btn btn-primary" %>
 </body>
