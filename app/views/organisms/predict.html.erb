@@ -1,9 +1,11 @@
+<% content_for :title, "Predict #{@page_title}" %>
+
 <h1>predict_class</h1>
 
 <div class="img_center">
-    <%= image_tag "#{flash[:acc]}.png" %>
+    <%= image_tag "#{params[:acc]}.png" %>
 </div>
 
-<p class="forms"> <%= @entry.deepL(flash[:acc])%> </p>
+<p class="predict_form"> <%="予測結果：#{@entry.deepL(params[:acc])}"%> </p>
 
-<h3><%= link_to '戻る', root_path %></h3>
+<h3><%= link_to '戻る', root_path, class: "btn btn-primary"%></h3>

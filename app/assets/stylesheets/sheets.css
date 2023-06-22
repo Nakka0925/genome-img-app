@@ -19,10 +19,15 @@ h1 {
     text-align:center;
 }
 
+.predict_form {
+    text-align:center;
+    margin: 50px;
+    font-size: 30px;
+}
+
 figure.img_box {
     justify-content: center;
     display:inline-block;
-    /* display:flex; */
 }
 
 input[type="text"] {
@@ -68,7 +73,6 @@ table {
     border-radius: 15px;    /*角を丸くする*/
 }
 
-
 /*ブロックを並列に置く*/
 .container {
     display: flex; /* 要素をフレックスコンテナにする */
@@ -91,6 +95,7 @@ table {
     align-items: center;
     justify-content: center;
 }
+
 /*ページの背景画像*/
 .top_page {
     background-image: url("/top_page.jpg");
