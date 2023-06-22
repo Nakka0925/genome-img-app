@@ -12,8 +12,13 @@ class OrganismsController < ApplicationController
   end
 
   def create
-    @page_title = params[:acc]
-    flash[:acc] = params[:acc]
+    if Organism.where(replicon: params[:acc]).present? #データベースに存在するかチェック
+      @page_title = params[:acc]
+      flash[:acc] = params[:acc]
+    else 
+      flash.now[:alert] = 'データベースに登録されていない生物です'
+      render :top
+    end
   end
 
   def download

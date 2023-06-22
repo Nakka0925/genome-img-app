@@ -16,7 +16,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
+  
+
   <body>
+    <% if flash.now[:alert].present? %>
+      <div class="alert alert-success">
+        <%= flash.now[:alert] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
