@@ -2,10 +2,10 @@
 
 <h1>predict_class</h1>
 
+<p class="predict_form"> <%="予測結果：#{@res_class}"%> </p>
+
 <div class="img_center">
     <%= image_tag "#{params[:acc]}.png" %>
 </div>
-
-<p class="predict_form"> <%="予測結果：#{@entry.deepL(params[:acc])}"%> </p>
 
 <h3><%= link_to '戻る', root_path, class: "btn btn-primary"%></h3>

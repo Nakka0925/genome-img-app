@@ -26,8 +26,16 @@ class OrganismsController < ApplicationController
   end
 
   def predict
+    entry = Genome.new()
     @page_title = params[:acc]
-    @entry = Genome.new()
+    @pre_class = entry.deepL(params[:acc])
+
+    if entry.deepL(params[:acc]) == false
+      flash.now[:alert] = 'データベースに登録されていない生物です'
+      render :top
+    else
+      @res_class = entry.deepL(params[:acc]) 
+    end
   end
 
   #csvからデータベースにデータを登録する
