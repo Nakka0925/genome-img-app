@@ -3,11 +3,11 @@
 <h1>Grath-generate</h1>
 
 <div class="img_center">
-    <%= image_tag "#{flash[:acc]}.png", class: "img_center"%>
+    <%= image_tag "#{flash[:acc]}.png" %>
 </div>
 
-<div class="img_center">
-    <%= button_to 'ダウンロード', download_path, method: :get, class: "img_center"%>
+<div class="forms">
+    <%= button_to 'ダウンロード', download_path, method: :get %>
 </div>
 
 <h3><%= link_to '戻る', root_path, class: "btn btn-primary"%></h3>
