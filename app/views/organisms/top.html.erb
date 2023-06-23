@@ -37,6 +37,39 @@
       <%= form.submit "予測" %>
     <% end %>
   </div>
+
 </div>
-<%= link_to '登録されている生物種',database_show_path, class: "btn btn-primary" %>
+<%# <%= link_to '登録されている生物種',root_path, class: "btn btn-primary" %> %>
 </body>
+
+<%= form_with url: root_path, method: "get", local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+  <%= form.text_field :search %>
+  <%= form.submit "検索" %>
+<% end %>
+
+<%= paginate @organisms %>
+<table border="1">
+  <thead>
+    <tr>
+      <th class="forms">アクセッション番号</th>
+      <th class="forms">生物種名</th>
+      <th class="forms">グループ</th>
+    </tr>
+  </thead>
+
+  <tbody class="forms">
+    <% @organisms.each do |organism| %>
+      <tr>
+        <td><%= organism.replicon %></td>
+        <td class="organism_name"><%= organism.name %></td>
+        <td><%= organism.classes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <%# <%= form_tag import_organisms_path, multipart: true do %>
+    <%# <%= file_field_tag :file %>
+    <%# <%= submit_tag "インポート" %>
+  <%# <% end %>
+
+</table>
+<%= paginate @organisms, class: "pagnate" %>

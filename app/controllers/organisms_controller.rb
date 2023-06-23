@@ -1,9 +1,6 @@
 class OrganismsController < ApplicationController
-  
-  def top
-  end
 
-  def database_show
+  def top
     if params[:search].present? # TODO: 条件の絞り込みで検索をおこなう
       @organisms = Organism.where("classes like ?", "%#{params[:search]}%").page(params[:page])
     else
@@ -12,12 +9,13 @@ class OrganismsController < ApplicationController
   end
 
   def create
+    @organisms = Organism.all.page(params[:page])
     if Organism.where(replicon: params[:acc]).present? #データベースに存在するかチェック
       @page_title = params[:acc]
       flash[:acc] = params[:acc]
     else 
-      flash.now[:alert] = 'データベースに登録されていない生物です'
-      render :top
+      flash[:alert] = 'データベースに登録されていない生物です'
+      redirect_to root_path
     end
   end
 
@@ -26,13 +24,14 @@ class OrganismsController < ApplicationController
   end
 
   def predict
+    @organisms = Organism.all.page(params[:page])
     entry = Genome.new()
     @page_title = params[:acc]
     @pre_class = entry.deepL(params[:acc])
 
     if entry.deepL(params[:acc]) == false
-      flash.now[:alert] = 'データベースに登録されていない生物です'
-      render :top
+      flash[:alert] = 'データベースに登録されていない生物です'
+      redirect_to root_path
     else
       @res_class = entry.deepL(params[:acc]) 
     end
