@@ -29,8 +29,8 @@
 
   <div class="block">
     <h2 class="top">機械学習を用いた生物種の予測</h2>
-    <p class="forms">精度としては89%程度</p>
-    <p class="forms">※多少時間がかかる可能性あり</p>
+    <p class="forms">予測できる生物種としては<a href="https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/">NCBIデータベース</a>に登録されているものとなっている</p>
+    <p class="forms">※精度としては89%程度、多少時間がかかる可能性あり</p>
 
     <%= form_with url: predict_path, local: true ,class: "forms" do |form| %>
       <%= form.text_field :acc %>
