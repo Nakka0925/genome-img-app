@@ -1,8 +1,12 @@
 class OrganismsController < ApplicationController
 
   def top
+    File.open("lib/train_api/label.json") do |f|
+      @class_data = JSON.load(f).keys()
+    end
+
     if params[:search].present? # TODO: 条件の絞り込みで検索をおこなう
-      @organisms = Organism.where("classes like ?", "%#{params[:search]}%").page(params[:page])
+      @organisms = Organism.where(classes: params[:search]).page(params[:page])
     else
       @organisms = Organism.all.page(params[:page])
     end
