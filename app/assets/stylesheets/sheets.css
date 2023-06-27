@@ -15,19 +15,29 @@ h1 {
     border-bottom: solid 3px #516ab6;/*下線*/
 }
 
-.forms {
+.document {
     text-align:center;
 }
 
-.predict_form {
+.res_document {
     text-align:center;
     margin: 50px;
     font-size: 30px;
 }
 
-figure.img_box {
-    justify-content: center;
-    display:inline-block;
+.forms {
+    text-align:center;
+    margin : 30px ;
+    padding : 20px ;
+    /* border : 5px solid maroon ; */
+    /* background-color : lightgreen ; */
+}
+
+.database_search_forms {
+    text-align:center;
+    margin : 70px 10px 10px 10px;
+    border-top: solid;
+    padding : 20px ;
 }
 
 input[type="text"] {
@@ -83,7 +93,7 @@ table {
   
 .block {
     flex: 1; /* 要素の幅を均等にする */
-    min-height: 400px;
+    min-height: 500px;
     /*height: 100px; /* 要素の高さを指定する */
     border: 1px solid black; /* ボーダーを追加する */
     text-align: center; /* 中央揃えにする */
@@ -96,10 +106,9 @@ table {
     justify-content: center;
 }
 
-/* ページの背景画像 */
-.top_page {
-    background-image: url("/top_page.jpg");
-    background-size: cover;
+.database_show {
+    text-align: center;
+    margin : 20px 10px 100px 10px;
 }
 
 /* チェックボックスの体裁 */

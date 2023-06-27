@@ -7,15 +7,15 @@
 <div class="container">
   <div class="block">
     <h2 class="top">塩基配列のグラフ画像表示</h2>
-    <p class="forms">作成する際のベクトルの割り当ては下図になります</p>
+    <p class="document">作成する際のベクトルの割り当ては下図になります</p>
     
-    <div class = "forms">
-      <figure class="img_box">
+    <div class = "img_center">
+      <figure>
         <%= image_tag "/atgc.jpg", alt: "atgcのベクトルの画像", size: "200x200" %>
         <figcaption>atgcベクトル割り当て</figcaption>
       </figure>
 
-      <figure class="img_box">
+      <figure>
         <%= image_tag "/atgc_tmp_graph.png", alt: "グラフ画像例", size: "200x200" %>
         <figcaption>例</figcaption>
       </figure>
@@ -23,52 +23,25 @@
 
     <%= form_with url: create_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
       <%= form.text_field :acc %>
-      <%= form.submit "作成" %>
+      <%= form.submit "作成", class: "btn" %>
     <% end %>
   </div>
 
   <div class="block">
     <h2 class="top">機械学習を用いた生物種の予測</h2>
-    <p class="forms">予測できる生物種としては<a href="https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/">NCBIデータベース</a>に登録されているものとなっている</p>
-    <p class="forms">※精度としては89%程度、多少時間がかかる可能性あり</p>
+    <p class="document">予測できる生物種としては<a href="https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/">NCBIデータベース</a>に登録されているものとなっている</p>
+    <p class="document">※精度としては89%程度、多少時間がかかる可能性あり</p>
 
     <%= form_with url: predict_path, local: true ,class: "forms" do |form| %>
       <%= form.text_field :acc %>
-      <%= form.submit "予測" %>
+      <%= form.submit "予測", class: "btn" %>
     <% end %>
   </div>
 
 </div>
 </body>
 
-<%= paginate @organisms %>
-<table border="1">
-  <thead>
-    <tr>
-      <th class="forms">アクセッション番号</th>
-      <th class="forms">生物種名</th>
-      <th class="forms">グループ</th>
-    </tr>
-  </thead>
-
-  <tbody class="forms">
-    <% @organisms.each do |organism| %>
-      <tr>
-        <td><%= organism.replicon %></td>
-        <td class="organism_name"><%= organism.name %></td>
-        <td><%= organism.classes %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  <%# <%= form_tag import_organisms_path, multipart: true do %>
-    <%# <%= file_field_tag :file %>
-    <%# <%= submit_tag "インポート" %>
-  <%# <% end %>
-
-</table>
-<%= paginate @organisms, class: "pagnate" %>
-
-<%= form_with url: root_path, method: "get", local: true, class: "forms" do |form| %>
+<%= form_with url: root_path, method: "get", local: true, class: "database_search_forms" do |form| %>
   <% @class_data.in_groups_of(10, false) do |group| %>
     <div class="checkbox-group">
       <% group.compact.each do |cls| %>
@@ -79,5 +52,36 @@
       <% end %>
     </div>
   <% end %>
-  <%= form.submit "検索"  %>
+  <%= form.submit "検索", class: 'btn' %>
 <% end %>
+
+<div class="database_show">
+  <%= paginate @organisms %>
+  <table border="1">
+    <thead>
+      <tr>
+        <th class="document">アクセッション番号</th>
+        <th class="document">生物種名</th>
+        <th class="document">グループ</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @organisms.each do |organism| %>
+        <tr>
+          <td><%= organism.replicon %></td>
+          <td class="organism_name"><%= organism.name %></td>
+          <td><%= organism.classes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @organisms, class: "pagnate" %>
+</div>
+
+
+<%#  %>
+<%# <%= form_tag import_organisms_path, multipart: true do %> 
+  <%# <%= file_field_tag :file %> 
+  <%# <%= submit_tag "インポート" %> 
+<%# <% end %> 

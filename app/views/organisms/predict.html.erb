@@ -2,12 +2,12 @@
 
 <h1>predict_class</h1>
 
-<p class="predict_form"> <%="予測結果：#{@res_class}"%> </p>
+<div class="res_document> <%="予測結果：#{@res_class}"%> </p>
 
 <div class="img_center">
     <%= image_tag "#{params[:acc]}.png" %>
 </div>
 
-<p class="forms"> <%= auto_link('分類情報に関しての参考URL https://www.ncbi.nlm.nih.gov/taxonomy/') %> </p>
+<p class="document"> <%= auto_link('分類情報に関しての参考URL https://www.ncbi.nlm.nih.gov/taxonomy/') %> </p>
 
-<h3 class="forms"> <%= link_to '戻る', root_path, class: "btn btn-primary"%> </h3>
+<h3 class="document"> <%= link_to '戻る', root_path, class: "btn btn-primary"%> </h3>
