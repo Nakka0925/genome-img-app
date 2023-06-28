@@ -1,0 +1,34 @@
+<% if user.errors.present? %>
+    <ul id="errors_explanation">
+        <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+<div class="user_create">
+    <%= form_with model: [:admin, @user], class: "col-md-6 offset-md-3", local: true do |f| %>
+        <div class="form-group">
+            <%= f.label :name, "名前" %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :email, "メールアドレス" %>
+            <%= f.text_field :email, class: "form-control" %>
+        </div>
+        <div class="from-check">
+            <%= f.label :admin, class: "form-check-label" do %>
+                <p> 管理者権限 <p>
+                <%= f.check_box :admin, class: "form-check-input" %>
+            <% end %>
+        </div>
+        <div class="form-gruop">
+            <%= f.label :password, "パスワード" %>
+            <%= f.password_field :password, class: "form-control "%>
+        </div>
+        <div class="form-gruop">
+            <%= f.label :password_confirmation, "パスワード(確認)" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
+        <%= f.submit "登録する", class: "btn" %>
+    <% end %>
+</div>

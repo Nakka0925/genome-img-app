@@ -40,10 +40,15 @@ h1 {
     padding : 20px ;
 }
 
-input[type="text"] {
-    width: 200px;
-    height: 20px;
+/* input[type="text"] {
+    width: 500px;
+    height: 40px;
 }
+
+input[type="password"] {
+    width: 500px;
+    height: 40px;
+} */
 
 th,td {
     padding: 5px;      /* 余白指定 */
@@ -120,3 +125,12 @@ table {
 .checkbox-item {
     margin-right: 10px;
   }
+
+
+.user_create {
+    padding: 50px;
+}
+
+.user_create_btn {
+    margin: auto;
+}
