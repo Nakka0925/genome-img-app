@@ -134,3 +134,7 @@ table {
 .user_create_btn {
     margin: auto;
 }
+
+.login_form {
+    padding: 50px;
+}
