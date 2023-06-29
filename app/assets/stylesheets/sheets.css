@@ -29,16 +29,14 @@ h1 {
     text-align:center;
     margin : 30px ;
     padding : 20px ;
-    /* border : 5px solid maroon ; */
-    /* background-color : lightgreen ; */
 }
 
-.database_search_forms {
+/* .database_search_forms {
     text-align:center;
     margin : 70px 10px 10px 10px;
     border-top: solid;
     padding : 20px ;
-}
+} */
 
 /* input[type="text"] {
     width: 500px;
@@ -51,7 +49,7 @@ input[type="password"] {
 } */
 
 th,td {
-    padding: 5px;      /* 余白指定 */
+    padding: 5px;
 }
 
 .organism_name {
@@ -100,7 +98,7 @@ table {
     flex: 1; /* 要素の幅を均等にする */
     min-height: 500px;
     /*height: 100px; /* 要素の高さを指定する */
-    border: 1px solid black; /* ボーダーを追加する */
+    border: 4px solid #0094D6; /* ボーダーを追加する */
     text-align: center; /* 中央揃えにする */
     margin: 0 10px; /* 左右に余白をつける */ 
 }
@@ -137,4 +135,20 @@ table {
 
 .login_form {
     padding: 50px;
+}
+
+.box{
+    border: 2px solid #0094D6;
+    text-align:center;
+    margin : 70px 70px 20px 70px;
+    padding : 20px ;
+}
+.box h3{
+    color: #0094D6;
+    margin: .2em auto;
+    width: calc(100% - 2em);
+    border-bottom: 2px solid #0094D6;
+}
+.box .inner{
+    padding: .5em 1.5em;
 }
