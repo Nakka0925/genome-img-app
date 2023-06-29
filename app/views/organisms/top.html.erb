@@ -21,9 +21,9 @@
       </figure>
     </div>
 
-    <%= form_with url: create_path, local: true ,class: "forms" do |form| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
-      <%= form.text_field :acc %>
-      <%= form.submit "作成", class: "btn" %>
+    <%= form_with url: create_path, local: true ,class: "forms" do |f| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
+      <%= f.text_field :acc %>
+      <%= f.submit "作成", class: "btn" %>
     <% end %>
   </div>
 
@@ -32,18 +32,19 @@
     <p class="document">予測できる生物種としては<a href="https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/">NCBIデータベース</a>に登録されているものとなっている</p>
     <p class="document">※精度としては89%程度、多少時間がかかる可能性あり</p>
 
-    <%= form_with url: predict_path, local: true ,class: "forms" do |form| %>
-      <%= form.text_field :acc %>
-      <%= form.submit "予測", class: "btn" %>
+    <%= form_with url: predict_path, local: true ,class: "forms" do |f| %>
+      <%= f.text_field :acc %>
+      <%= f.submit "予測", class: "btn" %>
     <% end %>
   </div>
 
 </div>
 </body>
+
 <div class="box">
   <h3>Group</h3>
   <div class="inner">
-    <%= form_with url: root_path, method: "get", local: true do |form| %>
+    <%= form_with url: root_path, method: "get", local: true do |f| %>
       <% @class_data.in_groups_of(10) do |group| %>
         <div class="checkbox-group">
           <% group.compact.each do |cls| %>
@@ -54,7 +55,7 @@
           <% end %>
         </div>
       <% end %>
-      <%= form.submit "検索", class: 'btn' %>
+      <%= f.submit "検索", class: 'btn' %>
     <% end %>
   </div>
 </div>

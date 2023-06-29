@@ -4,12 +4,8 @@
 
 <div class="res_document"> <%="#{@page_title}のグラフ画像(192x192)" %> </div>
 
-<div class="img_center">
-    <%= image_tag "#{flash[:acc]}.png" %>
-</div>
+<div class="img_center"> <%= image_tag "#{flash[:acc]}.png" %> </div>
 
-<div class="forms">
-    <%= button_to 'ダウンロード', download_path, method: :get %>
-</div>
+<div class="forms"> <%= button_to 'ダウンロード', download_path, method: :get %> </div>
 
-<h3 class="forms"> <%= link_to '戻る', root_path, class: "btn btn-primary"%></h3>
+<h3 class="forms"> <%= link_to '戻る', root_path, class: "btn btn-primary"%> </h3>
