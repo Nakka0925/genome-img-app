@@ -27,4 +27,4 @@ production:
   database: organisms_production
   username: nakanishi
   # password: <%= ENV['DATABASE'] %>
-  # url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
