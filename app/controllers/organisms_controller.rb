@@ -1,7 +1,7 @@
 class OrganismsController < ApplicationController
 
   def top
-    File.open("lib/train_api/label.json") do |f|
+    File.open("label.json") do |f|
       @class_data = JSON.load(f).keys()
     end
 
@@ -42,6 +42,6 @@ class OrganismsController < ApplicationController
   # csvからデータベースにデータを登録する
   def import 
     Organism.import(params[:file])
-    redirect_to database_show_path
+    redirect_to root_path
   end
 end
