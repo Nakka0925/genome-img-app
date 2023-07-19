@@ -38,7 +38,7 @@ class Genome
 
         return false if seq == false  
 
-        uri = URI.parse("http://localhost:5000/")
+        uri = URI.parse("https://train-api-y1sk.onrender.com/")
         request = Net::HTTP::Get.new(uri)
 
         request.content_type = "application/json"
