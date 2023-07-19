@@ -85,8 +85,8 @@
 </div>
 
 
-<%#  %>
-<%# <%= form_tag import_organisms_path, multipart: true do %> 
-  <%# <%= file_field_tag :file %> 
-  <%# <%= submit_tag "インポート" %> 
-<%# <% end %> 
+
+<%= form_tag import_organisms_path, multipart: true do %> 
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %> 
