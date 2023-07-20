@@ -38,7 +38,7 @@ class Genome
 
         return false if seq == false  
 
-        uri = URI.parse("https://train-api-y1sk.onrender.com/")
+        uri = URI.parse("https://train-api-ye5s.onrender.com/")
 
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
