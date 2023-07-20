@@ -39,6 +39,11 @@ class Genome
         return false if seq == false  
 
         uri = URI.parse("https://train-api-y1sk.onrender.com/")
+
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
         request = Net::HTTP::Get.new(uri)
 
         request.content_type = "application/json"
@@ -58,7 +63,7 @@ class Genome
         # label番号から分類情報を求める
         res = response.body.delete("^0-9").to_i
         data = Hash.new()
-        File.open("lib/machine-genome-classification/data/json/label.json") do |f|
+        File.open("label.json") do |f|
             data = JSON.load(f)
         end
 
