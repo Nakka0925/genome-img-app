@@ -30,12 +30,12 @@ class OrganismsController < ApplicationController
     @organisms = Organism.all.page(params[:page])
     entry = Genome.new()
     @page_title = params[:acc]
-    @pre_class = entry.deepL(params[:acc])
+    pre_class = entry.deepL(params[:acc])
 
-    if entry.deepL(params[:acc]) == false
+    if pre_class == false
       redirect_to root_path, alert: "データベースに登録されていない生物です"
     else
-      @res_class = entry.deepL(params[:acc]) 
+      @res_class = pre_class
     end
   end
 
