@@ -1,4 +1,5 @@
 class OrganismsController < ApplicationController
+  include Genome
 
   def top
     File.open("label.json") do |f|
