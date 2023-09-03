@@ -5,7 +5,7 @@
         <% end %>
     </ul>
 <% end %>
-<div class="user_create">
+<div style="padding: 50px">
     <%= form_with model: [:admin, @user], class: "col-md-6 offset-md-3", local: true do |f| %>
         <div class="form-group">
             <%= f.label :name, "名前" %>
