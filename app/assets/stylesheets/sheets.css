@@ -51,10 +51,6 @@ input[type="password"] {
 th,td {
     padding: 5px;
 }
-
-.organism_name {
-    width: 600px;
-}
  
 table {
     margin:auto;
@@ -105,7 +101,6 @@ table {
 
 .img_center {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -119,36 +114,16 @@ table {
     display: flex;
     justify-content: center;
   }
-  
-.checkbox-item {
-    margin-right: 10px;
-  }
-
-
-.user_create {
-    padding: 50px;
-}
-
-.user_create_btn {
-    margin: auto;
-}
-
-.login_form {
-    padding: 50px;
-}
 
 .box{
     border: 2px solid #0094D6;
     text-align:center;
-    margin : 70px 70px 20px 70px;
-    padding : 20px ;
+    margin : 10px;
 }
+
 .box h3{
     color: #0094D6;
     margin: .2em auto;
     width: calc(100% - 2em);
     border-bottom: 2px solid #0094D6;
-}
-.box .inner{
-    padding: .5em 1.5em;
 }

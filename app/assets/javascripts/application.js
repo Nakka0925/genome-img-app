@@ -14,3 +14,36 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+
+// アコーディオンメニュー
+// Turbolinks無効化(詳しくは過去記事参照)
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    $('.js-accordion-title').on('click', function () {
+      /*クリックでコンテンツを開閉*/
+      $(this).next().slideToggle(200);
+      /*矢印の向きを変更*/
+      $(this).toggleClass('open', 200);
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const img = ["/assets/NC_025221.png", "/assets/KX686108.png", "/assets/CP071572.png"];
+  const titles = ["シシオザル", "ウシガエル", "イノシシ"];
+  let count = -1;
+  const changePic = document.getElementById('changePic'); // HTML要素を取得
+  const changeTitle = document.getElementById('changeTitle');
+  picChange();
+
+  function picChange() {
+    count++;
+    if (count == img.length) count = 0;
+    // 画像選択
+    changePic.src = img[count];
+    changeTitle.textContent = titles[count];
+    // 秒数の指定
+    setTimeout(picChange, 4000);
+  }
+});

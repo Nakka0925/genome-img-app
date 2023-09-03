@@ -3,7 +3,14 @@
 </header>
 
 <body>
+
 <h1>ミトコンドリアゲノムのグラフ表示画像を入力とする機械学習ネットワーク</h1>
+
+<figure class = "ex_Pic">
+  <img id="changePic" style="width: 200px; height: 200px" src="/assets/NC_025221.png" alt="画像の切り替え">
+  <figcaption id="changeTitle" style="margin: 10px; font-size: 20px">シシオザル</figcaption>
+</figure>
+
 <div class="container">
   <div class="block">
     <h2 class="top">塩基配列のグラフ画像表示</h2>
@@ -41,24 +48,41 @@
 </div>
 </body>
 
-<div class="box">
-  <h3>Group</h3>
-  <div class="inner">
-    <%= form_with url: root_path, method: "get", local: true do |f| %>
-      <% @class_data.in_groups_of(10) do |group| %>
-        <div class="checkbox-group">
-          <% group.compact.each do |cls| %>
-            <div class="checkbox-item">
-              <%= check_box_tag 'search[]', cls %>
-              <%= label_tag cls, cls %>
-            </div>
-          <% end %>
+<!--accordion-containerの中にtitleとontentを配置-->
+<!--cardとcard-bodyはBootstrapのものなので使わない方は無視してください-->
+<div class="card accordion-container">
+  <div class="card-body accordion-title js-accordion-title">
+    Filter
+  </div>
+  <div class="card-body accordion-content">
+    <div class="card accordion-container">
+      <div class="card-body accordion-title js-accordion-title">
+        Group
+      </div>
+      <div class="card-body accordion-content">
+        <div class="box">
+          <%# <h3>Group</h3> %>
+          <div style="padding: .5em 1.5em">
+            <%= form_with url: root_path, method: "get", local: true do |f| %>
+              <% @class_data.in_groups_of(5) do |group| %>
+                <div class="checkbox-group">
+                  <% group.compact.each do |cls| %>
+                    <div style="width: 250px; margin-right: 10px">
+                      <%= label_tag cls, cls %> 
+                      <%= check_box_tag :search, cls %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= f.submit "検索", class: 'btn' %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
-      <%= f.submit "検索", class: 'btn' %>
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <div class="database_show">
   <%= paginate @organisms %>
@@ -75,7 +99,7 @@
       <% @organisms.each do |organism| %>
         <tr>
           <td><%= organism.replicon %></td>
-          <td class="organism_name"><%= organism.name %></td>
+          <td style="width: 600px;"><%= organism.name %></td>
           <td><%= organism.classes %></td>
         </tr>
       <% end %>
