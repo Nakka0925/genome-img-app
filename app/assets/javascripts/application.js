@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const img = ["/assets/NC_025221.png", "/assets/KX686108.png", "/assets/CP071572.png"];
+  const img = ["NC_025221.png", "KX686108.png", "CP071572.png"];
   const titles = ["シシオザル", "ウシガエル", "イノシシ"];
   let count = -1;
   const changePic = document.getElementById('changePic'); // HTML要素を取得
