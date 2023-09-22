@@ -29,7 +29,7 @@
     </div>
 
     <%= form_with url: create_path, local: true ,class: "forms" do |f| %><%#local true にしないとajax通信になる(Rails 5.1〜6.0の仕様)%>
-      <%= f.text_field :acc %>
+      <%= f.text_field :acc, placeholder: "アクセッション番号" %>
       <%= f.submit "作成", class: "btn" %>
     <% end %>
   </div>
@@ -40,7 +40,7 @@
     <p class="document">※精度としては89%程度、多少時間がかかる可能性あり</p>
 
     <%= form_with url: predict_path, local: true ,class: "forms" do |f| %>
-      <%= f.text_field :acc %>
+      <%= f.text_field :acc, placeholder: "アクセッション番号"%>
       <%= f.submit "予測", class: "btn" %>
     <% end %>
   </div>
