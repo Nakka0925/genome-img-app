@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2023_06_27_100919) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "organisms", force: :cascade do |t|
     t.string "replicon"
     t.string "name"

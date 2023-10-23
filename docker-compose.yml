@@ -1,0 +1,36 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  db:
+    image: "postgres:latest"  # データベースにPostgreSQLを使用する場合
+    environment:
+      POSTGRES_USER: genome-img-app
+      POSTGRES_PASSWORD: genome-img-app_password
+      POSTGRES_DB: genome-img-app_production
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/genome-img-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    # railsでpryする用
+    # true を指定することでコンテナを起動させ続けることができます。   
+    tty: true
+    # stdin_openとは標準入出力とエラー出力をコンテナに結びつける設定です。
+    stdin_open: true
+
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: postgres://genome-img-app:genome-img-app_password@db/genome-img-app_production
+
+
+volumes:
+  postgres_data:
