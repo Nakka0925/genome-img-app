@@ -18,7 +18,8 @@ class OrganismsController < ApplicationController
       @page_title = params[:acc]
       flash[:acc] = params[:acc]
     else 
-      redirect_to root_path, alert: "データベースに登録されていない生物です"
+      flash[:danger] = "データベースに登録されていない生物です"
+      redirect_to root_path
     end
   end
 
@@ -33,7 +34,8 @@ class OrganismsController < ApplicationController
     pre_class = entry.deepL(params[:acc])
 
     if pre_class == false
-      redirect_to root_path, alert: "データベースに登録されていない生物です"
+      flash[:danger] = "データベースに登録されていない生物です"
+      redirect_to root_path
     else
       @res_class = pre_class
     end
