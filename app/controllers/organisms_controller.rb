@@ -38,12 +38,16 @@ class OrganismsController < ApplicationController
     @organisms = Organism.all.page(params[:page])
     entry = Genome.new()
     @selected_acc= params[:acc]
-    pre_class = entry.deepL(params[:acc])
 
-    if pre_class == false
-      handle_error("データベースに登録されていない生物です")
-    else
-      @res_class = pre_class
+    begin
+      pre_class = entry.deepL(params[:acc])
+      if pre_class == false
+        raise StandardError, "データベースに登録されていない生物です"
+      else
+        @res_class = pre_class
+      end
+    rescue Net::HTTPError, StandardError => e
+      handle_error(e)
     end
   end
 
