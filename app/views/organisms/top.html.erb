@@ -37,7 +37,7 @@
   <div class="block">
     <h2 class="top">機械学習を用いた生物種の予測</h2>
     <p class="document">予測できる生物種としては<a href="https://www.ncbi.nlm.nih.gov/genome/browse#!/organelles/">NCBIデータベース</a>に登録されているものとなっている</p>
-    <p class="document">※精度としては89%程度、多少時間がかかる可能性あり</p>
+    <p class="document">※精度としては89%程度、多少時間がかかる可能性あり(3分ほど)</p>
 
     <%= form_with url: predict_path, local: true ,class: "forms" do |f| %>
       <%= f.text_field :acc, placeholder: "アクセッション番号"%>
@@ -54,35 +54,38 @@
   <div class="card-body accordion-title js-accordion-title">
     Filter
   </div>
-  <div class="card-body accordion-content">
-    <div class="card accordion-container">
-      <div class="card-body accordion-title js-accordion-title">
-        Group
-      </div>
-      <div class="card-body accordion-content">
-        <div class="box">
-          <%# <h3>Group</h3> %>
-          <div style="padding: .5em 1.5em">
-            <%= form_with url: root_path, method: "get", local: true do |f| %>
-              <% @class_data.in_groups_of(5) do |group| %>
-                <div class="checkbox-group">
-                  <% group.compact.each do |cls| %>
-                    <div style="width: 250px; margin-right: 10px">
-                      <%= label_tag cls, cls %> 
-                      <%= check_box_tag :search, cls %>
-                    </div>
-                  <% end %>
+  <div class="card-body accordion-content card accordion-container">
+    <div class="card-body accordion-title js-accordion-title">
+      Group
+    </div>
+    <div class="box">
+      <h3>Group</h3>
+      <div style="padding: .5em 1.5em">
+        <%= form_with url: root_path, method: "get", local: true do |f| %>
+          <% @class_data.in_groups_of(5) do |group| %>
+            <div class="checkbox-group">
+              <% group.compact.each do |cls| %>
+                <div style="width: 250px; margin-right: 10px">
+                  <%= label_tag cls, cls %> 
+                  <%= check_box_tag :search, cls %>
                 </div>
               <% end %>
-              <%= f.submit "検索", class: 'btn' %>
-            <% end %>
-          </div>
-        </div>
+            </div>
+          <% end %>
+          <%= f.submit "検索", class: 'btn' %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
+<% if current_user.admin? %>
+  生物種csvファイルをインポート
+  <%= form_tag import_organisms_path, multipart: true do  %>
+    <%= file_field_tag :file %>  
+    <%= submit_tag "インポート" %> 
+  <% end %>
+<% end %>
 
 <div class="database_show">
   <%= paginate @organisms %>
@@ -107,10 +110,3 @@
   </table>
   <%= paginate @organisms, class: "pagnate" %>
 </div>
-
-
-
-<%# <%= form_tag import_organisms_path, multipart: true do %>   
-  <%# <%= file_field_tag :file %>  
-  <%# <%= submit_tag "インポート" %> 
-<%# <% end %>   

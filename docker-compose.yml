@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: genome-img-app
       POSTGRES_PASSWORD: genome-img-app_password
-      POSTGRES_DB: genome-img-app_production
+      POSTGRES_DB: organisms_development
     ports:
       - "5432:5432"
     volumes:
@@ -29,7 +29,7 @@ services:
 
     environment:
       RAILS_ENV: development
-      DATABASE_URL: postgres://genome-img-app:genome-img-app_password@db/genome-img-app_production
+      DATABASE_URL: postgres://genome-img-app:genome-img-app_password@db/organisms_development
 
 
 volumes:

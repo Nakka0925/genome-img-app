@@ -2,7 +2,7 @@
 FROM ruby:2.7.7
 
 # 必要なパッケージのインストール
-RUN apt-get update -qq && apt-get install -y nodejs 
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
 # ルートディレクトリを作成
 RUN mkdir /genome-img-app
