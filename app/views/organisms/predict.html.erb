@@ -1,10 +1,10 @@
-<% content_for :title, "Predict #{@page_title}" %>
+<% content_for :title, "Predict #{@selected_acc}" %>
 
 <h1>predict_class</h1>
 
 <div class="res_document"> <%= "予測結果：#{@res_class}" %> </div>
 
-<div class="img_center"> <%= image_tag "#{params[:acc]}.png" %> </div>
+<div class="img_center"> <%= image_tag "#{@selected_acc}.png" %> </div>
 
 <p class="document"> <%= auto_link('分類情報に関しての参考URL https://www.ncbi.nlm.nih.gov/taxonomy/') %> </p>
 

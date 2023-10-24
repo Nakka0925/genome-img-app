@@ -1,11 +1,11 @@
-<% content_for :title, "Create #{@page_title}" %>
+<% content_for :title, "Create #{@selected_acc}" %>
 
 <h1>Grath-generate</h1>
 
-<div class="res_document"> <%="#{@page_title}のグラフ画像(192x192)" %> </div>
+<div class="res_document"> <%="#{@selected_acc}のグラフ画像(192x192)" %> </div>
 
-<div class="img_center"> <%= image_tag "#{flash[:acc]}.png" %> </div>
+<div class="img_center"> <%= image_tag "#{@selected_acc}.png" %> </div>
 
-<div class="forms"> <%= button_to 'ダウンロード', download_path, method: :get %> </div>
+<div class="forms"> <%= button_to 'ダウンロード', download_path, { method: :get, params: {acc: @selected_acc}} %> </div>
 
 <h3 class="forms"> <%= link_to '戻る', root_path, class: "btn btn-primary"%> </h3>
