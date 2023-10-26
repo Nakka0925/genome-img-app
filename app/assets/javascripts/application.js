@@ -12,13 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 //= require jquery
 
 // アコーディオンメニュー
-// Turbolinks無効化(詳しくは過去記事参照)
-$(document).on('turbolinks:load', function() {
   $(function(){
     $('.js-accordion-title').on('click', function () {
       /*クリックでコンテンツを開閉*/
@@ -27,23 +24,21 @@ $(document).on('turbolinks:load', function() {
       $(this).toggleClass('open', 200);
     });
   });
-});
+  document.addEventListener('DOMContentLoaded', function() {
+    const img = ["NC_025221.png", "KX686108.png", "CP071572.png"];
+    const titles = ["シシオザル", "ウシガエル", "イノシシ"];
+    let count = -1;
+    const changePic = document.getElementById('changePic'); // HTML要素を取得
+    const changeTitle = document.getElementById('changeTitle');
+    picChange();
 
-document.addEventListener('DOMContentLoaded', function() {
-  const img = ["NC_025221.png", "KX686108.png", "CP071572.png"];
-  const titles = ["シシオザル", "ウシガエル", "イノシシ"];
-  let count = -1;
-  const changePic = document.getElementById('changePic'); // HTML要素を取得
-  const changeTitle = document.getElementById('changeTitle');
-  picChange();
-
-  function picChange() {
-    count++;
-    if (count == img.length) count = 0;
-    // 画像選択
-    changePic.src = img[count];
-    changeTitle.textContent = titles[count];
-    // 秒数の指定
-    setTimeout(picChange, 3000);
-  }
-});
+    function picChange() {
+      count++;
+      if (count == img.length) count = 0;
+      // 画像選択
+      changePic.src = img[count];
+      changeTitle.textContent = titles[count];
+      // 秒数の指定
+      setTimeout(picChange, 3000);
+    }
+  });

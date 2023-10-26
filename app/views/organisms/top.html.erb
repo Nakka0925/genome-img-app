@@ -59,7 +59,7 @@
     <div class="box">
       <h3>Group</h3>
       <div style="padding: .5em 1.5em">
-        <%= form_with url: root_path, method: "get", local: true do |f| %>
+        <%= form_with url: root_path, method: "get" do |f| %>
           <% @class_data.in_groups_of(5) do |group| %>
             <div class="checkbox-group">
               <% group.compact.each do |cls| %>
