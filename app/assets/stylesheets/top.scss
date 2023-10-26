@@ -43,13 +43,6 @@
   transform: rotate(-45deg);
   top: 45%;
 }
-
-
-#changePic {
-  animation :imgfade 4000ms infinite;
-  opacity: 0;
-  margin: 50px;
-  }
   
   @keyframes imgfade {
     0% {
@@ -72,7 +65,7 @@
   }
 
 .ex_Pic{
-  border: 5px solid #0094D6;
+  border: 4px solid #0094D6;
   text-align:center;
-  margin : 50px 100px 50px 100px;
+  margin : 50px 110px 50px 110px;
 }

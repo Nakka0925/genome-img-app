@@ -44,6 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     changePic.src = img[count];
     changeTitle.textContent = titles[count];
     // 秒数の指定
-    setTimeout(picChange, 4000);
+    setTimeout(picChange, 3000);
   }
 });
